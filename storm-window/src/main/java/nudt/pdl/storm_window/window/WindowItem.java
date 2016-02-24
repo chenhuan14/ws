@@ -2,17 +2,19 @@ package nudt.pdl.storm_window.window;
 
 import org.calrissian.mango.domain.event.Event;
 
+import backtype.storm.tuple.Tuple;
+
 public class WindowItem {
-	Event event;
+	Tuple event;
 	long timestamp;
 	
-	public WindowItem(Event event, long timestamp) {
+	public WindowItem(Tuple event, long timestamp) {
         this.event = event;
         this.timestamp = timestamp;
        
     }
 
-    public Event getEvent() {
+    public Tuple getEvent() {
         return event;
     }
 

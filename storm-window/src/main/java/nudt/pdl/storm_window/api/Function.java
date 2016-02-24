@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.calrissian.mango.domain.event.Event;
 
+import backtype.storm.tuple.Tuple;
+
 public interface Function extends Serializable{
 
-    List<Event> execute(Event event);
-
+    public void execute(Tuple event);
+    
 }
