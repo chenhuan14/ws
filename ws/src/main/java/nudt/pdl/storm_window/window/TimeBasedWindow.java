@@ -1,6 +1,8 @@
 package nudt.pdl.storm_window.window;
 
-import org.calrissian.mango.domain.event.Event;
+
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +26,7 @@ public class TimeBasedWindow implements IWindow{
     
     
 
-	public void insert(Tuple tuple) {
+	public void insert(Object tuple) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -34,5 +36,12 @@ public class TimeBasedWindow implements IWindow{
 	public void clear() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+
+	public List<Object> getWindowElements() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

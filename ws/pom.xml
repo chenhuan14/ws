@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>nudt.pdl</groupId>
-  <artifactId>storm-window</artifactId>
+  <artifactId>test</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>storm-window</name>
+  <name>test</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -15,7 +15,6 @@
   </properties>
 
   <dependencies>
-  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -23,13 +22,8 @@
       <scope>test</scope>
     </dependency>
     
-     <dependency>
-      <groupId>org.calrissian.mango</groupId>
-      <artifactId>mango-core</artifactId>
-      <version>1.2.0</version>
-    </dependency>
     
-    <dependency>
+   <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.6.4</version>
@@ -43,6 +37,4 @@
     </dependency>
     
   </dependencies>
-  
-  
 </project>

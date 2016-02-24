@@ -1,10 +1,10 @@
-package nudt.pdl.storm_window;
+package nudt.pdl.test;
 
-public class Test {
+public class test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("helloword");
+		System.out.println("ddd");
 	}
 
 }

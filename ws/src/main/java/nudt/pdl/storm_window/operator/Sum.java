@@ -2,11 +2,12 @@ package nudt.pdl.storm_window.operator;
 
 import java.util.List;
 
-import backtype.storm.tuple.Tuple;
+
 import nudt.pdl.storm_window.api.Function;
 import nudt.pdl.storm_window.window.IWindow;
 import nudt.pdl.storm_window.window.IWindowEventHandler;
 import nudt.pdl.storm_window.window.LengthSlidingWindow;
+import nudt.pdl.storm_window.window.LengthTumblingWindow;
 
 public class Sum implements IWindowEventHandler, Function{
 	
@@ -16,7 +17,7 @@ public class Sum implements IWindowEventHandler, Function{
 	public Sum()
 	{
 		sum = 0;
-		window = new LengthSlidingWindow(5, this);
+		window = new LengthTumblingWindow(2, this);
 		
 	}
 	
@@ -25,28 +26,34 @@ public class Sum implements IWindowEventHandler, Function{
 		return sum;
 	}
 
-	public void execute(Tuple event) {
+	public void execute(Object event) {
 		window.insert(event);
 	}
 
-	public void insertionEventHandler(Tuple event) {
+	public void insertionEventHandler(Object object) {
 		// TODO Auto-generated method stub
-		
+		sum += (Integer) object;
 		
 	}
 
 	public void flushEventHandler() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public void EvicitionEventHandler(List<Tuple> events) {
-		// TODO Auto-generated method stub
+		sum = 0;
 		
 	}
 
-	public Tuple triggerEventHandler() {
+	public void EvicitionEventHandler(List<Object> events) {
+		for(Object o : events)
+		{
+			sum -= (Integer) o;
+		}
+		
+	}
+
+	public Object triggerEventHandler() {
 		// TODO Auto-generated method stub
+		System.out.println("sum = " + sum);
 		return null;
 	}
 

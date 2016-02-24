@@ -1,9 +1,11 @@
 package nudt.pdl.storm_window.window;
 
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import org.calrissian.mango.domain.event.Event;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,6 +68,25 @@ public abstract class  LengthBasedWindow implements IWindow{
 		
 		dataCollection.clear();
 	}
+	
+	public List<Object> getWindowElements()
+	{
+		return new ArrayList<Object>(dataCollection);
+	}
+	
+
+	public List<Object> evictFromWindow() {
+		List<Object> eviction = new ArrayList<Object>();
+		eviction.add(dataCollection.removeFirst().getEvent());
+		return eviction;
+	}
+	
+	public void insertIntoWindow(Object object)
+	{
+		WindowItem item = new WindowItem(object, System.currentTimeMillis());
+		dataCollection.addLast(item);	
+	}
+	
 
  
 }

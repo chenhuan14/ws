@@ -1,4 +1,4 @@
-package nudt.pdl.storm_window;
+package nudt.pdl.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
